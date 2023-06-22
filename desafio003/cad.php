@@ -10,8 +10,9 @@
     <main>
         <h1>Conversor de Moedas v1.0</h1>
         <?php 
-           (float)$num = $_GET["num"] ?? 0; 
-           $dolar = $num / 4.77;
+            $cotacao = 4.77; // pega do google
+            (float)$num = $_GET["num"] ?? 0; 
+            $dolar = $num / $cotacao;
            
            //echo "<p>Seus R$". number_format($num, 2, ",", ".") ." equivalem a US$ ".number_format($dolar, 2, ",", ".")."</p>";
            // formatação com internacionalização
