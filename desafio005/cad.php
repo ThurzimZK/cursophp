@@ -10,12 +10,17 @@
     <main>
         <h1>Analisador de Número Real</h1>
         <?php 
-            $num = $_GET["num"] ?? "error";
+            $num = $_POST["num"] ?? 0;
 
-            echo "Analisando o número $num informado pelo usuário:";
-            echo "<li> A parte inteira do número é $int";
-            echo "<li> A parte fracionária do número é $frac";
+            echo "Analisando o número <strong>". number_format($num, 3, "," , ".") ."</strong> informado pelo usuário:";
+
+            $int = (int)$num;
+            $frac = $num - $int;
+
+            echo "<ul><li> A parte inteira do número é <strong>". number_format($int, 0, "", ".")."</strong></li>";
+            echo "<li> A parte fracionária do número é <strong>" . number_format($frac, 3, ",", "") ."</strong></li></ul>";
         ?>
+        <button onclick="javascript:history.go(-1)">Voltar</button>
     </main>
 </body>
 </html>
