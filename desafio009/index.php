@@ -17,13 +17,13 @@
         <h1>Médias Aritméticas</h1>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
             <label for="v1">1° Valor</label>
-            <input type="number" name="v1" id="v1" min="0" value="<?=$valor1?>">
+            <input type="number" name="v1" id="v1" min="0" value="<?=$valor1?>" required>
             <label for="p1">1° Peso</label>
-            <input type="number" name="p1" id="p1" min="1" value="<?=$peso1?>">
+            <input type="number" name="p1" id="p1" min="1" value="<?=$peso1?>" required>
             <label for="v2">2° Valor</label>
-            <input type="number" name="v2" id="v2" min="0" value="<?=$valor2?>">
+            <input type="number" name="v2" id="v2" min="0" value="<?=$valor2?>" required>
             <label for="p2">2° Peso</label>
-            <input type="number" name="p2" id="p2" min="1" value="<?=$peso2?>">
+            <input type="number" name="p2" id="p2" min="1" value="<?=$peso2?>" required>
             <input type="submit" value="Calcular Médias">
         </form>
     </main>
@@ -35,8 +35,11 @@
 
             echo "Analisando valores de $valor1 e $valor2:";
             echo "<ul><li>A <strong>Média Aritmética Simples</strong> entre os valores é igual a " . number_format($msimples, 2, ",",".");
-            echo "<li>A <strong>Média Aritmética Ponderada</strong> com pesos $peso1 e $peso2 é igual a ". number_format($mponderada, 2, ",",".") ."</ul>";
-        ?>
+            //echo "<li>A <strong>Média Aritmética Ponderada</strong> com pesos $peso1 e $peso2 é igual a ". number_format($mponderada, 2, ",",".") ."</ul>";
+        ?> 
+        <!-- ou -->
+        <li>A <strong>Média Aritmética Ponderada</strong> com pesos <?=$peso1?> e <?=$peso2?> é igual a <?=number_format($mponderada, 2, ",",".")?></li></ul>
+
     </section>
 </body>
 </html>

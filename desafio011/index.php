@@ -16,8 +16,8 @@
         <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
         <label for="preco">Preço do produto (R$)</label>
         <input type="number" name="preco" id="preco" min="0" step="0.01" value="<?=$preco?>">
-        <label for="reajuste">Qual será o percentual do reajuste? <strong>()</strong></label>
-        <input type="range" name="reajuste" id="reajuste" range="100" value="<?=$reajuste?>">
+        <label for="reajuste">Qual será o percentual do reajuste? (<strong><span id="p">?</span>%</strong>)</label>
+        <input type="range" name="reajuste" id="reajuste" min="0" max="100" step="1" value="<?=$reajuste?>">
         <input type="submit" value="Reajustar">
 
         
@@ -32,5 +32,11 @@
           echo "O produto que custava " . numfmt_format_currency($padrao, $preco, "BRL") . ", com <strong>$reajuste% de aumento</strong> vai passar a custar <strong>" . numfmt_format_currency($padrao, $novo, "BRL")."</strong> a partir de agora.";
         ?>
     </section>
+    <script>
+        mudaValor()
+        function mudaValor() {
+            p.innerText = reajuste.value;
+        }
+    </script>
 </body>
 </html>
